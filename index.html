@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Siloucam Studios — jogos mobile pequenos e viciantes</title>
+<meta name="description" content="Siloucam Studios é um estúdio indie de jogos mobile: peças pequenas, simples de aprender, difíceis de largar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EFE9D6;
+    --panel:#FBF7EC;
+    --ink:#23301E;
+    --ink-soft:#5B6552;
+    --honey:#DFA030;
+    --berry:#A8455A;
+    --sage:#7C9473;
+    --line:#DCD3B6;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+  .eyebrow{
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--berry);
+  }
+
+  header.hero{padding:88px 0 64px;}
+  .hero-top{display:flex;align-items:center;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
+
+  .reveal-mark{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows:repeat(5,1fr);
+    width:60px;height:60px;
+    gap:3px;
+    flex:none;
+  }
+  .reveal-mark span{border-radius:2px;}
+  .reveal-mark span.filled-a{background:var(--honey);}
+  .reveal-mark span.filled-b{background:var(--berry);}
+  .reveal-mark span.hidden{border:1.5px solid var(--sage);opacity:.55;}
+
+  h1{
+    font-family:'Pixelify Sans',system-ui,sans-serif;
+    font-weight:700;
+    font-size:clamp(2.1rem,5vw,3.2rem);
+    margin:0;
+    line-height:1.1;
+  }
+  .tagline{
+    font-size:clamp(1.05rem,2vw,1.25rem);
+    color:var(--ink-soft);
+    max-width:34ch;
+    margin:18px 0 0;
+  }
+
+  section{padding:48px 0;border-top:1px solid var(--line);}
+  h2{
+    font-family:'Pixelify Sans',system-ui,sans-serif;
+    font-size:1.3rem;
+    margin:0 0 18px;
+  }
+  .about p{
+    font-size:1.05rem;
+    max-width:62ch;
+    color:var(--ink-soft);
+  }
+
+  .games-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+  }
+  .game-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .game-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px -14px rgba(35,48,30,.35);}
+  .game-card .num{
+    font-family:'Pixelify Sans',system-ui,sans-serif;
+    color:var(--sage);
+    font-size:.85rem;
+  }
+  .game-card h3{
+    font-family:'Pixelify Sans',system-ui,sans-serif;
+    font-size:1.05rem;
+    margin:8px 0 8px;
+  }
+  .game-card p{
+    color:var(--ink-soft);
+    font-size:.92rem;
+    margin:0 0 14px;
+  }
+  .status-tag{
+    display:inline-block;
+    font-size:.7rem;
+    font-weight:800;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border-radius:100px;
+  }
+  .status-tag.dev{background:var(--honey);color:var(--ink);}
+  .status-tag.soon{background:transparent;border:1.5px dashed var(--sage);color:var(--ink-soft);}
+  .game-card.ghost{background:transparent;border-style:dashed;}
+
+  footer{padding:40px 0 64px;}
+  .foot-row{
+    display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;justify-content:space-between;
+    font-size:.9rem;color:var(--ink-soft);
+  }
+  .foot-row a{text-decoration:underline;text-underline-offset:3px;}
+
+  a:focus-visible, .game-card:focus-visible{
+    outline:2.5px solid var(--berry);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .game-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-top">
+      <div class="reveal-mark" aria-hidden="true">
+        <span class="hidden"></span><span class="hidden"></span><span class="hidden"></span><span class="hidden"></span><span class="filled-a"></span>
+        <span class="hidden"></span><span class="hidden"></span><span class="hidden"></span><span class="filled-a"></span><span class="filled-b"></span>
+        <span class="hidden"></span><span class="hidden"></span><span class="filled-b"></span><span class="filled-a"></span><span class="filled-b"></span>
+        <span class="hidden"></span><span class="filled-a"></span><span class="filled-b"></span><span class="filled-a"></span><span class="filled-b"></span>
+        <span class="filled-b"></span><span class="filled-a"></span><span class="filled-b"></span><span class="filled-a"></span><span class="filled-b"></span>
+      </div>
+      <div class="eyebrow">Estúdio indie de jogos mobile</div>
+    </div>
+    <h1>Siloucam Studios</h1>
+    <p class="tagline">Jogos pequenos, focados numa mecânica só — e feitos pra serem bons nela.</p>
+  </header>
+
+  <section class="about">
+    <h2>O que fazemos</h2>
+    <p>A Siloucam Studios é um estúdio indie construindo um portfólio de jogos mobile simples e altamente rejogáveis — do tipo que se aprende em cinco segundos e não se larga tão fácil. Cada título é pequeno de propósito: uma mecânica, bem executada.</p>
+  </section>
+
+  <section class="games">
+    <h2>Jogos</h2>
+    <div class="games-grid">
+      <div class="game-card">
+        <div class="num">01</div>
+        <h3>Pixel Pop Pets</h3>
+        <p>Colecione bichinhos em pixel art, revelados aos poucos, um traço de cada vez.</p>
+        <span class="status-tag dev">Em desenvolvimento</span>
+      </div>
+      <div class="game-card ghost">
+        <div class="num">02</div>
+        <h3>Próximo jogo</h3>
+        <p>Mecânica ainda em escolha — baseada em dados, não em achismo.</p>
+        <span class="status-tag soon">Em breve</span>
+      </div>
+      <div class="game-card ghost">
+        <div class="num">03</div>
+        <h3>Próximo jogo</h3>
+        <p>Slot reservado no portfólio.</p>
+        <span class="status-tag soon">Em breve</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-row">
+      <span>© <span id="year"></span> Siloucam Studios</span>
+      <a href="mailto:silascampos23@gmail.com">silascampos23@gmail.com</a>
+      <a href="privacy.html">Política de Privacidade</a>
+    </div>
+  </footer>
+</div>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
